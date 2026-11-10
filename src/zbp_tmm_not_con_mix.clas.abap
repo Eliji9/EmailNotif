@@ -1,0 +1,6 @@
+CLASS zbp_tmm_not_con_mix DEFINITION PUBLIC ABSTRACT FINAL
+  FOR BEHAVIOR OF zr_tmm_not_con_mix.
+ENDCLASS.
+
+CLASS zbp_tmm_not_con_mix IMPLEMENTATION.
+ENDCLASS.

@@ -3,9 +3,9 @@
 @Metadata.allowExtensions: true
 @Search.searchable: true
 @ObjectModel.semanticKey: [ 'Usuario', 'Pais' ]
-define root view entity ZC_PARAM_PAIS_USR
+define root view entity ZC_TMM_NOT_CON_MIX
   provider contract transactional_query
-  as projection on ZR_PARAM_PAIS_USR
+  as projection on ZR_TMM_NOT_CON_MIX
 {
       @Search.defaultSearchElement: true
       @Search.fuzzinessThreshold: 0.8

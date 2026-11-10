@@ -1,6 +1,0 @@
-CLASS zbp_r_param_pais_usr DEFINITION PUBLIC ABSTRACT FINAL
-  FOR BEHAVIOR OF zr_param_pais_usr.
-ENDCLASS.
-
-CLASS zbp_r_param_pais_usr IMPLEMENTATION.
-ENDCLASS.

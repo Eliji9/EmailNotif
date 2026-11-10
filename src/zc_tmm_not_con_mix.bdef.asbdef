@@ -2,7 +2,7 @@ projection;
 strict ( 2 );
 use draft;
 
-define behavior for ZC_PARAM_PAIS_USR alias ParamPaisUsr
+define behavior for ZC_TMM_NOT_CON_MIX alias ParamPaisUsr
 {
   use create;
   use update;

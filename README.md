@@ -5,23 +5,23 @@ Código fuente en `src/`.
 Orden de creación en ADT:
 
 1. Tabla `ZTMM_NOT_CON_MIX`
-2. CDS raíz `ZR_PARAM_PAIS_USR`
-3. CDS proyección `ZC_PARAM_PAIS_USR`
-4. Metadata Extension `ZC_PARAM_PAIS_USR`
-5. BDEF `ZR_PARAM_PAIS_USR` → quick fix crea la tabla draft `ZTMM_NOT_CON_MXD` y la clase `ZBP_R_PARAM_PAIS_USR`
-6. BDEF proyección `ZC_PARAM_PAIS_USR`
-7. Service Definition `ZUI_PARAM_PAIS_USR`
-8. Service Binding `ZUI_PARAM_PAIS_USR_O4` (OData V4 – UI) → Publish → Preview
+2. CDS raíz `ZR_TMM_NOT_CON_MIX`
+3. CDS proyección `ZC_TMM_NOT_CON_MIX`
+4. Metadata Extension `ZC_TMM_NOT_CON_MIX`
+5. BDEF `ZR_TMM_NOT_CON_MIX` → quick fix crea la tabla draft `ZTMM_NOT_CON_MID` y la clase `ZBP_TMM_NOT_CON_MIX`
+6. BDEF proyección `ZC_TMM_NOT_CON_MIX`
+7. Service Definition `ZUI_TMM_NOT_CON_MIX_O4`
+8. Service Binding `ZUI_TMM_NOT_CON_MIX_O4` (OData V4 – UI) → Publish → Preview
 
 Ayudas de búsqueda (released, C1):
 - Usuario → `I_BusinessUserVH` (UserID, PersonFullName)
 - País → `I_CountryVH` (Country), texto con `I_CountryText`
 
 
-## Service Binding `ZUI_PARAM_PAIS_USR_O4`
+## Service Binding `ZUI_TMM_NOT_CON_MIX_O4`
 
 - Binding Type: **OData V4 – UI**
-- Service Definition: `ZUI_PARAM_PAIS_USR`
+- Service Definition: `ZUI_TMM_NOT_CON_MIX_O4`
 - Activar → Publish → Preview sobre `ParamPaisUsr`
 
 ## Notas

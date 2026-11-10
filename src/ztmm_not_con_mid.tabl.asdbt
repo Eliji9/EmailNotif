@@ -3,7 +3,7 @@
 @AbapCatalog.tableCategory : #TRANSPARENT
 @AbapCatalog.deliveryClass : #A
 @AbapCatalog.dataMaintenance : #RESTRICTED
-define table ztmm_not_con_mxd {
+define table ztmm_not_con_mid {
 
   key mandt          : mandt not null;
   key usuario        : syuname not null;

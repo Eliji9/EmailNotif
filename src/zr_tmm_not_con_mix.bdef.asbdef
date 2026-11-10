@@ -1,10 +1,10 @@
-managed implementation in class zbp_r_param_pais_usr unique;
+managed implementation in class zbp_tmm_not_con_mix unique;
 strict ( 2 );
 with draft;
 
-define behavior for ZR_PARAM_PAIS_USR alias ParamPaisUsr
+define behavior for ZR_TMM_NOT_CON_MIX alias ParamPaisUsr
 persistent table ztmm_not_con_mix
-draft table ztmm_not_con_mxd
+draft table ztmm_not_con_mid
 etag master LocalLastChangedAt
 lock master total etag LastChangedAt
 authorization master ( global )

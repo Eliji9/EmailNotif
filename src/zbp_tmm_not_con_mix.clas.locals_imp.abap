@@ -25,7 +25,7 @@ CLASS lhc_ParamPaisUsr IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD validarUsuario.
-    READ ENTITIES OF zr_param_pais_usr IN LOCAL MODE
+    READ ENTITIES OF zr_tmm_not_con_mix IN LOCAL MODE
       ENTITY ParamPaisUsr
         FIELDS ( Usuario ) WITH CORRESPONDING #( keys )
       RESULT DATA(lt_registros).
@@ -65,7 +65,7 @@ CLASS lhc_ParamPaisUsr IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD validarPais.
-    READ ENTITIES OF zr_param_pais_usr IN LOCAL MODE
+    READ ENTITIES OF zr_tmm_not_con_mix IN LOCAL MODE
       ENTITY ParamPaisUsr
         FIELDS ( Pais ) WITH CORRESPONDING #( keys )
       RESULT DATA(lt_registros).
@@ -104,7 +104,7 @@ CLASS lhc_ParamPaisUsr IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD validarCorreo.
-    READ ENTITIES OF zr_param_pais_usr IN LOCAL MODE
+    READ ENTITIES OF zr_tmm_not_con_mix IN LOCAL MODE
       ENTITY ParamPaisUsr
         FIELDS ( Correo ) WITH CORRESPONDING #( keys )
       RESULT DATA(lt_registros).

@@ -1,6 +1,6 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Parametrización País - Usuario'
-define root view entity ZR_PARAM_PAIS_USR
+define root view entity ZR_TMM_NOT_CON_MIX
   as select from ztmm_not_con_mix
 
   association [0..1] to I_BusinessUserVH as _Usuario

@@ -1,6 +1,6 @@
 @EndUserText.label: 'Servicio Parametrización País - Usuario'
-define service ZUI_PARAM_PAIS_USR {
-  expose ZC_PARAM_PAIS_USR as ParamPaisUsr;
+define service ZUI_TMM_NOT_CON_MIX_O4 {
+  expose ZC_TMM_NOT_CON_MIX as ParamPaisUsr;
   expose I_BusinessUserVH  as UsuarioVH;
   expose I_CountryVH       as PaisVH;
 }

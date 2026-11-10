@@ -8,7 +8,7 @@
   },
   presentationVariant: [{ sortOrder: [{ by: 'Usuario', direction: #ASC }] }]
 }
-annotate entity ZC_PARAM_PAIS_USR with
+annotate entity ZC_TMM_NOT_CON_MIX with
 {
   @UI.facet: [
     { id: 'General', purpose: #STANDARD, type: #IDENTIFICATION_REFERENCE,
