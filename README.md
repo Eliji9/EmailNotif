@@ -1,0 +1,32 @@
+# EmailNotif – Parametrización País / Usuario (RAP / ABAP Cloud)
+
+Código fuente en `src/`.
+
+Orden de creación en ADT:
+
+1. Tabla `ZTMM_NOT_CON_MIX`
+2. CDS raíz `ZR_PARAM_PAIS_USR`
+3. CDS proyección `ZC_PARAM_PAIS_USR`
+4. Metadata Extension `ZC_PARAM_PAIS_USR`
+5. BDEF `ZR_PARAM_PAIS_USR` → quick fix crea la tabla draft `ZTMM_NOT_CON_MXD` y la clase `ZBP_R_PARAM_PAIS_USR`
+6. BDEF proyección `ZC_PARAM_PAIS_USR`
+7. Service Definition `ZUI_PARAM_PAIS_USR`
+8. Service Binding `ZUI_PARAM_PAIS_USR_O4` (OData V4 – UI) → Publish → Preview
+
+Ayudas de búsqueda (released, C1):
+- Usuario → `I_BusinessUserVH` (UserID, PersonFullName)
+- País → `I_CountryVH` (Country), texto con `I_CountryText`
+
+
+## Service Binding `ZUI_PARAM_PAIS_USR_O4`
+
+- Binding Type: **OData V4 – UI**
+- Service Definition: `ZUI_PARAM_PAIS_USR`
+- Activar → Publish → Preview sobre `ParamPaisUsr`
+
+## Notas
+
+- **Duplicados**: la clave es Usuario + País, así que el framework rechaza la misma combinación al activar el draft.
+- **Clase de entrega `#A`**: el dato se mantiene directo en cada ambiente (sin transporte). Si lo necesitas como customizing transportable (`#C`), hay que agregar el manejo de transporte con `I_Technical_Transport` / Business Configuration.
+- **Autorización**: está abierta (`#NOT_REQUIRED` y auth global permitida). Para producción conviene un DCL y un objeto de autorización propio.
+- Si en el sistema `I_BusinessUserVH` no trae a los usuarios técnicos que necesitas, cámbialo por `I_User` (campo `UserID`, texto `UserDescription`) en la asociación, la ayuda de búsqueda y la validación.

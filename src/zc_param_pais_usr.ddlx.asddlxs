@@ -1,0 +1,58 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName:       'Parámetro País - Usuario',
+    typeNamePlural: 'Parámetros País - Usuario',
+    title:          { type: #STANDARD, value: 'Usuario' },
+    description:    { type: #STANDARD, value: 'PaisNombre' }
+  },
+  presentationVariant: [{ sortOrder: [{ by: 'Usuario', direction: #ASC }] }]
+}
+annotate entity ZC_PARAM_PAIS_USR with
+{
+  @UI.facet: [
+    { id: 'General', purpose: #STANDARD, type: #IDENTIFICATION_REFERENCE,
+      label: 'Datos generales', position: 10 },
+    { id: 'Admin',   purpose: #STANDARD, type: #FIELDGROUP_REFERENCE,
+      targetQualifier: 'Admin', label: 'Administración', position: 20 }
+  ]
+
+  @UI: { lineItem:       [{ position: 10, importance: #HIGH }],
+         identification: [{ position: 10 }],
+         selectionField: [{ position: 10 }] }
+  @EndUserText.label: 'Usuario'
+  Usuario;
+
+  @UI: { lineItem:       [{ position: 20, importance: #HIGH }],
+         identification: [{ position: 20 }],
+         selectionField: [{ position: 20 }] }
+  @EndUserText.label: 'País'
+  Pais;
+
+  @UI.hidden: true
+  UsuarioNombre;
+
+  @UI.hidden: true
+  PaisNombre;
+
+  @UI: { lineItem:       [{ position: 30, importance: #HIGH }],
+         identification: [{ position: 30 }],
+         selectionField: [{ position: 30 }] }
+  @EndUserText.label: 'Activo'
+  Activo;
+
+  @UI.fieldGroup: [{ qualifier: 'Admin', position: 10 }]
+  CreatedBy;
+
+  @UI.fieldGroup: [{ qualifier: 'Admin', position: 20 }]
+  CreatedAt;
+
+  @UI.fieldGroup: [{ qualifier: 'Admin', position: 30 }]
+  LastChangedBy;
+
+  @UI.fieldGroup: [{ qualifier: 'Admin', position: 40 }]
+  LastChangedAt;
+
+  @UI.hidden: true
+  LocalLastChangedAt;
+}

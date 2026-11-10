@@ -1,0 +1,19 @@
+@EndUserText.label : 'Draft - Parametrización País - Usuario'
+@AbapCatalog.enhancement.category : #EXTENSIBLE_ANY
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table ztmm_not_con_mxd {
+
+  key mandt          : mandt not null;
+  key usuario        : syuname not null;
+  key pais           : land1 not null;
+  activo             : abap_boolean;
+  createdby          : abp_creation_user;
+  createdat          : abp_creation_tstmpl;
+  lastchangedby      : abp_locinst_lastchange_user;
+  lastchangedat      : abp_lastchange_tstmpl;
+  locallastchangedat : abp_locinst_lastchange_tstmpl;
+  "%admin"           : include sych_bdl_draft_admin_inc;
+
+}

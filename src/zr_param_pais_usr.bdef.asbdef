@@ -1,0 +1,45 @@
+managed implementation in class zbp_r_param_pais_usr unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZR_PARAM_PAIS_USR alias ParamPaisUsr
+persistent table ztmm_not_con_mix
+draft table ztmm_not_con_mxd
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master ( global )
+{
+  field ( mandatory : create, readonly : update ) Usuario, Pais;
+  field ( readonly ) CreatedBy, CreatedAt, LastChangedBy, LastChangedAt, LocalLastChangedAt;
+
+  create;
+  update;
+  delete;
+
+  determination setActivo on modify { create; }
+
+  validation validarUsuario on save { create; field Usuario; }
+  validation validarPais    on save { create; field Pais; }
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare
+  {
+    validation validarUsuario;
+    validation validarPais;
+  }
+
+  mapping for ztmm_not_con_mix
+  {
+    Usuario            = usuario;
+    Pais               = pais;
+    Activo             = activo;
+    CreatedBy          = created_by;
+    CreatedAt          = created_at;
+    LastChangedBy      = last_changed_by;
+    LastChangedAt      = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}
