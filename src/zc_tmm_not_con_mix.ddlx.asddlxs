@@ -1,8 +1,8 @@
 @Metadata.layer: #CUSTOMER
 @UI: {
   headerInfo: {
-    typeName:       'Parámetro País - Usuario',
-    typeNamePlural: 'Parámetros País - Usuario',
+    typeName:       'Notificación contrato mixto',
+    typeNamePlural: 'Notificaciones contratos mixtos',
     title:          { type: #STANDARD, value: 'Usuario' },
     description:    { type: #STANDARD, value: 'PaisNombre' }
   },

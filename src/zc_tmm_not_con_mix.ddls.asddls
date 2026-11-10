@@ -1,5 +1,5 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Parametrización País - Usuario'
+@EndUserText.label: 'Notificaciones contratos mixtos'
 @Metadata.allowExtensions: true
 @Search.searchable: true
 @ObjectModel.semanticKey: [ 'Usuario', 'Pais' ]

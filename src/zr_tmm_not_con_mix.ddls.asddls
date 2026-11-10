@@ -1,5 +1,5 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Parametrización País - Usuario'
+@EndUserText.label: 'Notificaciones contratos mixtos'
 define root view entity ZR_TMM_NOT_CON_MIX
   as select from ztmm_not_con_mix
 
