@@ -36,10 +36,9 @@ annotate entity ZC_PARAM_PAIS_USR with
   PaisNombre;
 
   @UI: { lineItem:       [{ position: 30, importance: #HIGH }],
-         identification: [{ position: 30 }],
-         selectionField: [{ position: 30 }] }
-  @EndUserText.label: 'Activo'
-  Activo;
+         identification: [{ position: 30 }] }
+  @EndUserText.label: 'Correo electrónico'
+  Correo;
 
   @UI.fieldGroup: [{ qualifier: 'Admin', position: 10 }]
   CreatedBy;

@@ -4,8 +4,8 @@ CLASS lhc_ParamPaisUsr DEFINITION INHERITING FROM cl_abap_behavior_handler.
     METHODS get_global_authorizations FOR GLOBAL AUTHORIZATION
       IMPORTING REQUEST requested_authorizations FOR ParamPaisUsr RESULT result.
 
-    METHODS setActivo FOR DETERMINE ON MODIFY
-      IMPORTING keys FOR ParamPaisUsr~setActivo.
+    METHODS validarCorreo FOR VALIDATE ON SAVE
+      IMPORTING keys FOR ParamPaisUsr~validarCorreo.
 
     METHODS validarUsuario FOR VALIDATE ON SAVE
       IMPORTING keys FOR ParamPaisUsr~validarUsuario.
@@ -22,25 +22,6 @@ CLASS lhc_ParamPaisUsr IMPLEMENTATION.
                       %update      = if_abap_behv=>auth-allowed
                       %delete      = if_abap_behv=>auth-allowed
                       %action-Edit = if_abap_behv=>auth-allowed ).
-  ENDMETHOD.
-
-  METHOD setActivo.
-    " Por defecto, todo registro nuevo queda activo
-    READ ENTITIES OF zr_param_pais_usr IN LOCAL MODE
-      ENTITY ParamPaisUsr
-        FIELDS ( Activo ) WITH CORRESPONDING #( keys )
-      RESULT DATA(lt_registros).
-
-    DELETE lt_registros WHERE Activo = abap_true.
-    IF lt_registros IS INITIAL.
-      RETURN.
-    ENDIF.
-
-    MODIFY ENTITIES OF zr_param_pais_usr IN LOCAL MODE
-      ENTITY ParamPaisUsr
-        UPDATE FIELDS ( Activo )
-        WITH VALUE #( FOR ls_reg IN lt_registros
-                      ( %tky = ls_reg-%tky Activo = abap_true ) ).
   ENDMETHOD.
 
   METHOD validarUsuario.
@@ -117,6 +98,38 @@ CLASS lhc_ParamPaisUsr IMPLEMENTATION.
                                                              THEN `El país es obligatorio`
                                                              ELSE |El país { ls_reg-Pais } no existe| ) )
                         %element-Pais = if_abap_behv=>mk-on ) TO reported-parampaisusr.
+      ENDIF.
+
+    ENDLOOP.
+  ENDMETHOD.
+
+  METHOD validarCorreo.
+    READ ENTITIES OF zr_param_pais_usr IN LOCAL MODE
+      ENTITY ParamPaisUsr
+        FIELDS ( Correo ) WITH CORRESPONDING #( keys )
+      RESULT DATA(lt_registros).
+
+    LOOP AT lt_registros INTO DATA(ls_reg).
+
+      APPEND VALUE #( %tky        = ls_reg-%tky
+                      %state_area = 'VALIDAR_CORREO' ) TO reported-parampaisusr.
+
+      DATA(lv_correo) = condense( val = CONV string( ls_reg-Correo ) ).
+
+      IF lv_correo IS INITIAL
+         OR NOT matches( val  = lv_correo
+                         pcre = `^[^@\s]+@[^@\s]+\.[^@\s]+$` ).
+
+        APPEND VALUE #( %tky = ls_reg-%tky ) TO failed-parampaisusr.
+
+        APPEND VALUE #( %tky            = ls_reg-%tky
+                        %state_area     = 'VALIDAR_CORREO'
+                        %msg            = new_message_with_text(
+                                            severity = if_abap_behv_message=>severity-error
+                                            text     = COND #( WHEN lv_correo IS INITIAL
+                                                               THEN `El correo es obligatorio`
+                                                               ELSE |El correo { lv_correo } no es válido| ) )
+                        %element-Correo = if_abap_behv=>mk-on ) TO reported-parampaisusr.
       ENDIF.
 
     ENDLOOP.

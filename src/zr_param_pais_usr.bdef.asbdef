@@ -10,16 +10,16 @@ lock master total etag LastChangedAt
 authorization master ( global )
 {
   field ( mandatory : create, readonly : update ) Usuario, Pais;
+  field ( mandatory ) Correo;
   field ( readonly ) CreatedBy, CreatedAt, LastChangedBy, LastChangedAt, LocalLastChangedAt;
 
   create;
   update;
   delete;
 
-  determination setActivo on modify { create; }
-
   validation validarUsuario on save { create; field Usuario; }
   validation validarPais    on save { create; field Pais; }
+  validation validarCorreo  on save { create; update; field Correo; }
 
   draft action Activate optimized;
   draft action Discard;
@@ -29,13 +29,14 @@ authorization master ( global )
   {
     validation validarUsuario;
     validation validarPais;
+    validation validarCorreo;
   }
 
   mapping for ztmm_not_con_mix
   {
     Usuario            = usuario;
     Pais               = pais;
-    Activo             = activo;
+    Correo             = correo;
     CreatedBy          = created_by;
     CreatedAt          = created_at;
     LastChangedBy      = last_changed_by;

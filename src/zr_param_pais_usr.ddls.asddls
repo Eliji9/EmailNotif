@@ -12,7 +12,7 @@ define root view entity ZR_PARAM_PAIS_USR
 {
   key usuario               as Usuario,
   key pais                  as Pais,
-      activo                as Activo,
+      correo                as Correo,
 
       @Semantics.user.createdBy: true
       created_by            as CreatedBy,

@@ -24,7 +24,7 @@ define root view entity ZC_PARAM_PAIS_USR
       @Semantics.text: true
       _PaisTexto.CountryName  as PaisNombre,
 
-      Activo,
+      Correo,
       CreatedBy,
       CreatedAt,
       LastChangedBy,

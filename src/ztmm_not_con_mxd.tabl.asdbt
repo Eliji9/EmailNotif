@@ -8,7 +8,7 @@ define table ztmm_not_con_mxd {
   key mandt          : mandt not null;
   key usuario        : syuname not null;
   key pais           : land1 not null;
-  activo             : abap_boolean;
+  correo             : abap.char(241);
   createdby          : abp_creation_user;
   createdat          : abp_creation_tstmpl;
   lastchangedby      : abp_locinst_lastchange_user;
