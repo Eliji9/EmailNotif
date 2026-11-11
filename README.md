@@ -25,6 +25,6 @@ Ayudas de búsqueda (released, C1):
 
 ## Notas
 
-- **Duplicados**: la clave es País + Correo (varios correos por país), así que el framework rechaza la misma combinación al activar el draft.
+- **Duplicados**: la clave es solo el País (un correo por país), así que el framework rechaza un país repetido al activar el draft.
 - **Clase de entrega `#A`**: el dato se mantiene directo en cada ambiente (sin transporte). Si lo necesitas como customizing transportable (`#C`), hay que agregar el manejo de transporte con `I_Technical_Transport` / Business Configuration.
 - **Autorización**: está abierta (`#NOT_REQUIRED` y auth global permitida). Para producción conviene un DCL y un objeto de autorización propio.

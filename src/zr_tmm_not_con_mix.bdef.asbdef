@@ -9,7 +9,8 @@ etag master LocalLastChangedAt
 lock master total etag LastChangedAt
 authorization master ( global )
 {
-  field ( mandatory : create, readonly : update ) Pais, Correo;
+  field ( mandatory : create, readonly : update ) Pais;
+  field ( mandatory ) Correo;
   field ( readonly ) CreatedBy, CreatedAt, LastChangedBy, LastChangedAt, LocalLastChangedAt;
 
   create;
@@ -17,7 +18,7 @@ authorization master ( global )
   delete;
 
   validation validarPais   on save { create; field Pais; }
-  validation validarCorreo on save { create; field Correo; }
+  validation validarCorreo on save { create; update; field Correo; }
 
   draft action Activate optimized;
   draft action Discard;

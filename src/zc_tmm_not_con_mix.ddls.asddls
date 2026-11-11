@@ -2,7 +2,7 @@
 @EndUserText.label: 'Notificaciones contratos mixtos'
 @Metadata.allowExtensions: true
 @Search.searchable: true
-@ObjectModel.semanticKey: [ 'Pais', 'Correo' ]
+@ObjectModel.semanticKey: [ 'Pais' ]
 define root view entity ZC_TMM_NOT_CON_MIX
   provider contract transactional_query
   as projection on ZR_TMM_NOT_CON_MIX
@@ -14,7 +14,7 @@ define root view entity ZC_TMM_NOT_CON_MIX
 
       @Search.defaultSearchElement: true
       @Search.fuzzinessThreshold: 0.8
-  key Correo,
+      Correo,
 
       @Semantics.text: true
       _PaisTexto.CountryName as PaisNombre,

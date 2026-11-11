@@ -8,7 +8,7 @@ define root view entity ZR_TMM_NOT_CON_MIX
     and _PaisTexto.Language = $session.system_language
 {
   key pais                  as Pais,
-  key correo                as Correo,
+      correo                as Correo,
 
       @Semantics.user.createdBy: true
       created_by            as CreatedBy,

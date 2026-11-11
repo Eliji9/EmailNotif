@@ -7,7 +7,7 @@ define table ztmm_not_con_mix {
 
   key client            : abap.clnt not null;
   key pais              : land1 not null;
-  key correo            : abap.char(241) not null;
+  correo                : abap.char(241);
   created_by            : abp_creation_user;
   created_at            : abp_creation_tstmpl;
   last_changed_by       : abp_locinst_lastchange_user;

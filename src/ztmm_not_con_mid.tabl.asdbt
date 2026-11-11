@@ -7,7 +7,7 @@ define table ztmm_not_con_mid {
 
   key mandt          : mandt not null;
   key pais           : land1 not null;
-  key correo         : abap.char(241) not null;
+  correo             : abap.char(241);
   createdby          : abp_creation_user;
   createdat          : abp_creation_tstmpl;
   lastchangedby      : abp_locinst_lastchange_user;
