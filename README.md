@@ -28,3 +28,7 @@ Ayudas de búsqueda (released, C1):
 - **Duplicados**: la clave es solo el País (un correo por país), así que el framework rechaza un país repetido al activar el draft.
 - **Clase de entrega `#A`**: el dato se mantiene directo en cada ambiente (sin transporte). Si lo necesitas como customizing transportable (`#C`), hay que agregar el manejo de transporte con `I_Technical_Transport` / Business Configuration.
 - **Autorización**: está abierta (`#NOT_REQUIRED` y auth global permitida). Para producción conviene un DCL y un objeto de autorización propio.
+
+## Envío de correo MIGO
+
+`src/migo/envio_correo_migo.abap`: reemplaza la llamada a `ZCL_MIG_OC_CONTRATOS_MIXTOS=>EMAIL_MIGO` por `ZCL_MAN_CON_MIX_DATA=>SEND_EMAIL`, con remitente por país desde `ZTMM_NOT_CON_MIX`.
