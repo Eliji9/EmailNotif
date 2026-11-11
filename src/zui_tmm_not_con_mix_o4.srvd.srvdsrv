@@ -1,6 +1,5 @@
-@EndUserText.label: 'Servicio Parametrización País - Usuario'
+@EndUserText.label: 'Servicio Notificaciones contratos mixtos'
 define service ZUI_TMM_NOT_CON_MIX_O4 {
-  expose ZC_TMM_NOT_CON_MIX as ParamPaisUsr;
-  expose I_BusinessUserVH  as UsuarioVH;
-  expose I_CountryVH       as PaisVH;
+  expose ZC_TMM_NOT_CON_MIX as NotConMix;
+  expose I_CountryVH        as PaisVH;
 }

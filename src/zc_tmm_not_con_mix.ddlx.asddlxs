@@ -3,10 +3,10 @@
   headerInfo: {
     typeName:       'Notificación contrato mixto',
     typeNamePlural: 'Notificaciones contratos mixtos',
-    title:          { type: #STANDARD, value: 'Usuario' },
-    description:    { type: #STANDARD, value: 'PaisNombre' }
+    title:          { type: #STANDARD, value: 'PaisNombre' },
+    description:    { type: #STANDARD, value: 'Correo' }
   },
-  presentationVariant: [{ sortOrder: [{ by: 'Usuario', direction: #ASC }] }]
+  presentationVariant: [{ sortOrder: [{ by: 'Pais', direction: #ASC }] }]
 }
 annotate entity ZC_TMM_NOT_CON_MIX with
 {
@@ -20,25 +20,17 @@ annotate entity ZC_TMM_NOT_CON_MIX with
   @UI: { lineItem:       [{ position: 10, importance: #HIGH }],
          identification: [{ position: 10 }],
          selectionField: [{ position: 10 }] }
-  @EndUserText.label: 'Usuario'
-  Usuario;
+  @EndUserText.label: 'País'
+  Pais;
 
   @UI: { lineItem:       [{ position: 20, importance: #HIGH }],
          identification: [{ position: 20 }],
          selectionField: [{ position: 20 }] }
-  @EndUserText.label: 'País'
-  Pais;
-
-  @UI.hidden: true
-  UsuarioNombre;
+  @EndUserText.label: 'Correo electrónico'
+  Correo;
 
   @UI.hidden: true
   PaisNombre;
-
-  @UI: { lineItem:       [{ position: 30, importance: #HIGH }],
-         identification: [{ position: 30 }] }
-  @EndUserText.label: 'Correo electrónico'
-  Correo;
 
   @UI.fieldGroup: [{ qualifier: 'Admin', position: 10 }]
   CreatedBy;

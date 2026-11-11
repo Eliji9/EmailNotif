@@ -1,4 +1,4 @@
-@EndUserText.label : 'Draft - Parametrización País - Usuario'
+@EndUserText.label : 'Draft - Notificaciones contratos mixtos'
 @AbapCatalog.enhancement.category : #EXTENSIBLE_ANY
 @AbapCatalog.tableCategory : #TRANSPARENT
 @AbapCatalog.deliveryClass : #A
@@ -6,9 +6,8 @@
 define table ztmm_not_con_mid {
 
   key mandt          : mandt not null;
-  key usuario        : syuname not null;
   key pais           : land1 not null;
-  correo             : abap.char(241);
+  key correo         : abap.char(241) not null;
   createdby          : abp_creation_user;
   createdat          : abp_creation_tstmpl;
   lastchangedby      : abp_locinst_lastchange_user;

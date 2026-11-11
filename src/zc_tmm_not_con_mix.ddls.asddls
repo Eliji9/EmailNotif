@@ -2,29 +2,23 @@
 @EndUserText.label: 'Notificaciones contratos mixtos'
 @Metadata.allowExtensions: true
 @Search.searchable: true
-@ObjectModel.semanticKey: [ 'Usuario', 'Pais' ]
+@ObjectModel.semanticKey: [ 'Pais', 'Correo' ]
 define root view entity ZC_TMM_NOT_CON_MIX
   provider contract transactional_query
   as projection on ZR_TMM_NOT_CON_MIX
 {
       @Search.defaultSearchElement: true
-      @Search.fuzzinessThreshold: 0.8
-      @ObjectModel.text.element: [ 'UsuarioNombre' ]
-      @Consumption.valueHelpDefinition: [{ entity: { name: 'I_BusinessUserVH', element: 'UserID' } }]
-  key Usuario,
-
-      @Search.defaultSearchElement: true
       @ObjectModel.text.element: [ 'PaisNombre' ]
       @Consumption.valueHelpDefinition: [{ entity: { name: 'I_CountryVH', element: 'Country' } }]
   key Pais,
 
-      @Semantics.text: true
-      _Usuario.PersonFullName as UsuarioNombre,
+      @Search.defaultSearchElement: true
+      @Search.fuzzinessThreshold: 0.8
+  key Correo,
 
       @Semantics.text: true
-      _PaisTexto.CountryName  as PaisNombre,
+      _PaisTexto.CountryName as PaisNombre,
 
-      Correo,
       CreatedBy,
       CreatedAt,
       LastChangedBy,
@@ -32,6 +26,5 @@ define root view entity ZC_TMM_NOT_CON_MIX
       LocalLastChangedAt,
 
       /* Associations */
-      _Usuario,
       _PaisTexto
 }

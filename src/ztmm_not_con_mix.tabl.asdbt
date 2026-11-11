@@ -1,4 +1,4 @@
-@EndUserText.label : 'Parametrización País - Usuario'
+@EndUserText.label : 'Notificaciones contratos mixtos'
 @AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
 @AbapCatalog.tableCategory : #TRANSPARENT
 @AbapCatalog.deliveryClass : #A
@@ -6,9 +6,8 @@
 define table ztmm_not_con_mix {
 
   key client            : abap.clnt not null;
-  key usuario           : syuname not null;
   key pais              : land1 not null;
-  correo                : abap.char(241);
+  key correo            : abap.char(241) not null;
   created_by            : abp_creation_user;
   created_at            : abp_creation_tstmpl;
   last_changed_by       : abp_locinst_lastchange_user;

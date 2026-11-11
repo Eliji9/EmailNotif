@@ -2,24 +2,22 @@ managed implementation in class zbp_tmm_not_con_mix unique;
 strict ( 2 );
 with draft;
 
-define behavior for ZR_TMM_NOT_CON_MIX alias ParamPaisUsr
+define behavior for ZR_TMM_NOT_CON_MIX alias NotConMix
 persistent table ztmm_not_con_mix
 draft table ztmm_not_con_mid
 etag master LocalLastChangedAt
 lock master total etag LastChangedAt
 authorization master ( global )
 {
-  field ( mandatory : create, readonly : update ) Usuario, Pais;
-  field ( mandatory ) Correo;
+  field ( mandatory : create, readonly : update ) Pais, Correo;
   field ( readonly ) CreatedBy, CreatedAt, LastChangedBy, LastChangedAt, LocalLastChangedAt;
 
   create;
   update;
   delete;
 
-  validation validarUsuario on save { create; field Usuario; }
-  validation validarPais    on save { create; field Pais; }
-  validation validarCorreo  on save { create; update; field Correo; }
+  validation validarPais   on save { create; field Pais; }
+  validation validarCorreo on save { create; field Correo; }
 
   draft action Activate optimized;
   draft action Discard;
@@ -27,14 +25,12 @@ authorization master ( global )
   draft action Resume;
   draft determine action Prepare
   {
-    validation validarUsuario;
     validation validarPais;
     validation validarCorreo;
   }
 
   mapping for ztmm_not_con_mix
   {
-    Usuario            = usuario;
     Pais               = pais;
     Correo             = correo;
     CreatedBy          = created_by;

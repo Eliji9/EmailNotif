@@ -3,16 +3,12 @@
 define root view entity ZR_TMM_NOT_CON_MIX
   as select from ztmm_not_con_mix
 
-  association [0..1] to I_BusinessUserVH as _Usuario
-    on $projection.Usuario = _Usuario.UserID
-
-  association [0..1] to I_CountryText    as _PaisTexto
-    on  $projection.Pais     = _PaisTexto.Country
-    and _PaisTexto.Language  = $session.system_language
+  association [0..1] to I_CountryText as _PaisTexto
+    on  $projection.Pais    = _PaisTexto.Country
+    and _PaisTexto.Language = $session.system_language
 {
-  key usuario               as Usuario,
   key pais                  as Pais,
-      correo                as Correo,
+  key correo                as Correo,
 
       @Semantics.user.createdBy: true
       created_by            as CreatedBy,
@@ -25,6 +21,5 @@ define root view entity ZR_TMM_NOT_CON_MIX
       @Semantics.systemDateTime.localInstanceLastChangedAt: true
       local_last_changed_at as LocalLastChangedAt,
 
-      _Usuario,
       _PaisTexto
 }
