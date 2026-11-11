@@ -16,7 +16,7 @@
 *----------------------------------------------------------------------*
 
           " Destinatarios: de tt_correos a tabla de strings
-          DATA(lt_destinatarios) = VALUE zcl_mm_util_pfa=>tt_email_addresses(
+          DATA(lt_destinatarios) = VALUE string_table(
             FOR ls_correo IN lt_correos WHERE ( emailaddress IS NOT INITIAL )
             ( CONV string( ls_correo-emailaddress ) ) ).
 
